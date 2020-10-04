@@ -15,10 +15,12 @@ node
     {
         sh "${mavenHome}/bin/mvn sonar:sonar"
     }
+    
     stage('UploadArtifactsIntoNexus')
     {
         sh "${mavenHome}/bin/mvn deploy"
     }
+    
     stage('DeployApplicationIntoTOmcat')
     {
         sshagent(['TomcatCrdentials']) 
@@ -26,11 +28,11 @@ node
             sh 'scp -o StrictHostKeyChecking=no target/maven-web-application.war praveen.k.polepalli@35.188.44.54:/opt/apache-tomcat-9.0.38/webapps/'
         }
     }
-    /*
+    
     stage('EmailNotification')
     {
         mail bcc: '', body: 'Build is over', cc: '', from: '', replyTo: '', subject: 'Build Status', to: 'polepalli514@gmail.com'
     }
-    */
+    
         
 }
