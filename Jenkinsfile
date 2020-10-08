@@ -25,7 +25,7 @@ node
     {
         sshagent(['TomcatCrdentials']) 
         {
-            sh 'scp -o StrictHostKeyChecking=no target/maven-web-application.war praveen.k.polepalli@35.188.44.54:/opt/apache-tomcat-9.0.38/webapps/'
+            sh 'scp -o StrictHostKeyChecking=no target/maven-web-application.war praveen.k.polepalli@35.225.118.57:/opt/apache-tomcat-9.0.38/webapps/'
         }
     }
     /*
